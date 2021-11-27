@@ -1,0 +1,40 @@
+PODS:
+  - Alamofire (5.4.4)
+  - BetterSegmentedControl (2.0.1)
+  - IQKeyboardManagerSwift (6.5.9)
+  - lottie-ios (3.2.3)
+  - SHSnackBarView (1.0.1)
+  - SSCustomTabbar (2.0.6)
+  - SwiftGifOrigin (1.7.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - BetterSegmentedControl (~> 2.0)
+  - IQKeyboardManagerSwift
+  - lottie-ios
+  - SHSnackBarView
+  - SSCustomTabbar
+  - SwiftGifOrigin (~> 1.7.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - BetterSegmentedControl
+    - IQKeyboardManagerSwift
+    - lottie-ios
+    - SHSnackBarView
+    - SSCustomTabbar
+    - SwiftGifOrigin
+
+SPEC CHECKSUMS:
+  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  BetterSegmentedControl: 09607b27861d49cbce48b7673b74f9150a3d371a
+  IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
+  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
+  SHSnackBarView: b054b88142fffd4a9d2ef46f35c314f915925306
+  SSCustomTabbar: a52533e429bd40f52ce8d7ecb801f3521fbd56a0
+  SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
+
+PODFILE CHECKSUM: 1f38412d544ea1c2609ca78c0616171de9d02e6f
+
+COCOAPODS: 1.11.2

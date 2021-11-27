@@ -1,0 +1,15 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'WeatherApp' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+pod 'IQKeyboardManagerSwift'
+pod 'SwiftGifOrigin', '~> 1.7.0'
+pod 'Alamofire'
+pod 'SHSnackBarView'
+pod 'lottie-ios'
+pod "SSCustomTabbar"
+pod 'BetterSegmentedControl', '~> 2.0'
+end

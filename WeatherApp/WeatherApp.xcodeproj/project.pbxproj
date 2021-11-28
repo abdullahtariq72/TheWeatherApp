@@ -20,12 +20,12 @@
 		7D01D36727538932005705FC /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D01D36627538932005705FC /* DBManager.swift */; };
 		7D01D36B2753ACDE005705FC /* NetworkManagerUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D01D36A2753ACDE005705FC /* NetworkManagerUtility.swift */; };
 		7D01D36E2753C2DC005705FC /* WeatherAppUtilityTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D01D36D2753C2DC005705FC /* WeatherAppUtilityTest.swift */; };
-		7D01D3872753CC07005705FC /* SwiftUITabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D01D3802753CC07005705FC /* SwiftUITabbar.swift */; };
-		7D01D3882753CC07005705FC /* SSCustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D01D3812753CC07005705FC /* SSCustomTabBarViewController.swift */; };
-		7D01D3892753CC07005705FC /* Declration&Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D01D3822753CC07005705FC /* Declration&Constants.swift */; };
-		7D01D38A2753CC07005705FC /* SSCustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D01D3832753CC07005705FC /* SSCustomTabBar.swift */; };
-		7D01D38B2753CC07005705FC /* UIView+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D01D3842753CC07005705FC /* UIView+Extenstion.swift */; };
-		7D01D38C2753CC07005705FC /* SwiftUISupport.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D01D3862753CC07005705FC /* SwiftUISupport.storyboard */; };
+		7D01D3962753F26C005705FC /* SwiftUITabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D01D38F2753F26C005705FC /* SwiftUITabbar.swift */; };
+		7D01D3972753F26C005705FC /* SSCustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D01D3902753F26C005705FC /* SSCustomTabBarViewController.swift */; };
+		7D01D3982753F26C005705FC /* Declration&Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D01D3912753F26C005705FC /* Declration&Constants.swift */; };
+		7D01D3992753F26C005705FC /* SSCustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D01D3922753F26C005705FC /* SSCustomTabBar.swift */; };
+		7D01D39A2753F26C005705FC /* UIView+Extenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D01D3932753F26C005705FC /* UIView+Extenstion.swift */; };
+		7D01D39B2753F26C005705FC /* SwiftUISupport.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D01D3952753F26C005705FC /* SwiftUISupport.storyboard */; };
 		7D0A08E927515BD700FDADEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A08E827515BD700FDADEE /* AppDelegate.swift */; };
 		7D0A08ED27515BD700FDADEE /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A08EC27515BD700FDADEE /* SplashViewController.swift */; };
 		7D0A08F027515BD700FDADEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D0A08EE27515BD700FDADEE /* Main.storyboard */; };
@@ -90,12 +90,12 @@
 		7D01D36627538932005705FC /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		7D01D36A2753ACDE005705FC /* NetworkManagerUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerUtility.swift; sourceTree = "<group>"; };
 		7D01D36D2753C2DC005705FC /* WeatherAppUtilityTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppUtilityTest.swift; sourceTree = "<group>"; };
-		7D01D3802753CC07005705FC /* SwiftUITabbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUITabbar.swift; sourceTree = "<group>"; };
-		7D01D3812753CC07005705FC /* SSCustomTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSCustomTabBarViewController.swift; sourceTree = "<group>"; };
-		7D01D3822753CC07005705FC /* Declration&Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Declration&Constants.swift"; sourceTree = "<group>"; };
-		7D01D3832753CC07005705FC /* SSCustomTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSCustomTabBar.swift; sourceTree = "<group>"; };
-		7D01D3842753CC07005705FC /* UIView+Extenstion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extenstion.swift"; sourceTree = "<group>"; };
-		7D01D3862753CC07005705FC /* SwiftUISupport.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SwiftUISupport.storyboard; sourceTree = "<group>"; };
+		7D01D38F2753F26C005705FC /* SwiftUITabbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUITabbar.swift; sourceTree = "<group>"; };
+		7D01D3902753F26C005705FC /* SSCustomTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSCustomTabBarViewController.swift; sourceTree = "<group>"; };
+		7D01D3912753F26C005705FC /* Declration&Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Declration&Constants.swift"; sourceTree = "<group>"; };
+		7D01D3922753F26C005705FC /* SSCustomTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSCustomTabBar.swift; sourceTree = "<group>"; };
+		7D01D3932753F26C005705FC /* UIView+Extenstion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extenstion.swift"; sourceTree = "<group>"; };
+		7D01D3952753F26C005705FC /* SwiftUISupport.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SwiftUISupport.storyboard; sourceTree = "<group>"; };
 		7D0A08E527515BD700FDADEE /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D0A08E827515BD700FDADEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D0A08EC27515BD700FDADEE /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -207,31 +207,31 @@
 			path = UserDefaultManager;
 			sourceTree = "<group>";
 		};
-		7D01D37E2753CC07005705FC /* SSCustomTabBar */ = {
+		7D01D38D2753F26C005705FC /* SSCustomTabBar */ = {
 			isa = PBXGroup;
 			children = (
-				7D01D37F2753CC07005705FC /* Classes */,
-				7D01D3852753CC07005705FC /* SwiftUI */,
+				7D01D38E2753F26C005705FC /* Classes */,
+				7D01D3942753F26C005705FC /* SwiftUI */,
 			);
 			path = SSCustomTabBar;
 			sourceTree = "<group>";
 		};
-		7D01D37F2753CC07005705FC /* Classes */ = {
+		7D01D38E2753F26C005705FC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				7D01D3802753CC07005705FC /* SwiftUITabbar.swift */,
-				7D01D3812753CC07005705FC /* SSCustomTabBarViewController.swift */,
-				7D01D3822753CC07005705FC /* Declration&Constants.swift */,
-				7D01D3832753CC07005705FC /* SSCustomTabBar.swift */,
-				7D01D3842753CC07005705FC /* UIView+Extenstion.swift */,
+				7D01D38F2753F26C005705FC /* SwiftUITabbar.swift */,
+				7D01D3902753F26C005705FC /* SSCustomTabBarViewController.swift */,
+				7D01D3912753F26C005705FC /* Declration&Constants.swift */,
+				7D01D3922753F26C005705FC /* SSCustomTabBar.swift */,
+				7D01D3932753F26C005705FC /* UIView+Extenstion.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		7D01D3852753CC07005705FC /* SwiftUI */ = {
+		7D01D3942753F26C005705FC /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				7D01D3862753CC07005705FC /* SwiftUISupport.storyboard */,
+				7D01D3952753F26C005705FC /* SwiftUISupport.storyboard */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -297,7 +297,7 @@
 		7D0A091E27516D8700FDADEE /* Local Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7D01D37E2753CC07005705FC /* SSCustomTabBar */,
+				7D01D38D2753F26C005705FC /* SSCustomTabBar */,
 				7D0A091F27516D8700FDADEE /* ARSLineProgress */,
 			);
 			path = "Local Pods";
@@ -597,7 +597,7 @@
 				7D0A08F227515BDB00FDADEE /* Assets.xcassets in Resources */,
 				7D0A08F027515BD700FDADEE /* Main.storyboard in Resources */,
 				7D0A09EF2751814100FDADEE /* WeatherTableCell.xib in Resources */,
-				7D01D38C2753CC07005705FC /* SwiftUISupport.storyboard in Resources */,
+				7D01D39B2753F26C005705FC /* SwiftUISupport.storyboard in Resources */,
 				7D0A091D2751695000FDADEE /* weatherAnimate.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -684,14 +684,14 @@
 			files = (
 				7D0A09A927516EE300FDADEE /* WeatherListViewController.swift in Sources */,
 				7D0A094427516D8800FDADEE /* ARSLineProgressProtocols.swift in Sources */,
-				7D01D38A2753CC07005705FC /* SSCustomTabBar.swift in Sources */,
-				7D01D3882753CC07005705FC /* SSCustomTabBarViewController.swift in Sources */,
+				7D01D3992753F26C005705FC /* SSCustomTabBar.swift in Sources */,
+				7D01D3972753F26C005705FC /* SSCustomTabBarViewController.swift in Sources */,
 				7D01D359275263C7005705FC /* LocationManager.swift in Sources */,
 				7D0A095B27516D9400FDADEE /* APINetworkManager.swift in Sources */,
 				7D0A094027516D8800FDADEE /* ARSLineProgressExtensions.swift in Sources */,
-				7D01D38B2753CC07005705FC /* UIView+Extenstion.swift in Sources */,
-				7D01D3872753CC07005705FC /* SwiftUITabbar.swift in Sources */,
-				7D01D3892753CC07005705FC /* Declration&Constants.swift in Sources */,
+				7D01D39A2753F26C005705FC /* UIView+Extenstion.swift in Sources */,
+				7D01D3962753F26C005705FC /* SwiftUITabbar.swift in Sources */,
+				7D01D3982753F26C005705FC /* Declration&Constants.swift in Sources */,
 				7D0A094127516D8800FDADEE /* ARSLineProgressCustomization.swift in Sources */,
 				7D0A09F12751868C00FDADEE /* WeatherTableViewCell.swift in Sources */,
 				7D01D350275216EF005705FC /* AppUtility.swift in Sources */,

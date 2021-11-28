@@ -62,8 +62,8 @@
         <!--Custom Tab Bar View Controller-->
         <scene sceneID="Dn2-Ln-DiH">
             <objects>
-                <tabBarController storyboardIdentifier="SSCustomTabBarViewController" id="Ywt-k7-At1" customClass="SSCustomTabBarViewController" customModule="SSCustomTabbar" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KlQ-Hl-AUw" customClass="SSCustomTabBar" customModule="SSCustomTabbar">
+                <tabBarController storyboardIdentifier="SSCustomTabBarViewController" id="Ywt-k7-At1" customClass="SSCustomTabBarViewController" customModule="WeatherApp" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KlQ-Hl-AUw" customClass="SSCustomTabBar" customModule="WeatherApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -6,9 +6,7 @@
 //
 
 import UIKit
-import SwiftGifOrigin
 import Lottie
-import SSCustomTabbar
 
 class SplashViewController: UIViewController {
 

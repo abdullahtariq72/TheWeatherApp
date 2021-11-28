@@ -11,8 +11,6 @@ PODS:
   - RealmSwift (10.20.0):
     - Realm (= 10.20.0)
   - SHSnackBarView (1.0.1)
-  - SSCustomTabbar (2.0.6)
-  - SwiftGifOrigin (1.7.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -23,8 +21,6 @@ DEPENDENCIES:
   - ReachabilitySwift
   - RealmSwift
   - SHSnackBarView
-  - SSCustomTabbar
-  - SwiftGifOrigin (~> 1.7.0)
 
 SPEC REPOS:
   trunk:
@@ -37,8 +33,6 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - SHSnackBarView
-    - SSCustomTabbar
-    - SwiftGifOrigin
 
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
@@ -50,9 +44,7 @@ SPEC CHECKSUMS:
   Realm: ae32bdc1da7d19c7617e0400201a77acd4a211b9
   RealmSwift: c95eec6a712924870b2e36c4c081d63ec07e5414
   SHSnackBarView: b054b88142fffd4a9d2ef46f35c314f915925306
-  SSCustomTabbar: a52533e429bd40f52ce8d7ecb801f3521fbd56a0
-  SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
 
-PODFILE CHECKSUM: f3842c76c8a7180a948f64f4dab728ade47244ab
+PODFILE CHECKSUM: 5e2f00361c6d044d58c6a9f4ecd5f862d45ed4cf
 
 COCOAPODS: 1.11.2

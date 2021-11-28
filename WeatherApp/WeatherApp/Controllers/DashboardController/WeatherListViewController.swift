@@ -6,7 +6,8 @@
 //
 
 import UIKit
-import CoreLocation
+import GooglePlaces
+import UserNotifications
 
 class WeatherListViewController: UIViewController {
     
@@ -18,10 +19,12 @@ class WeatherListViewController: UIViewController {
     @IBOutlet weak var loctionImgView: UIImageView!
     
     //MARK: - Data Variables
-    let locationManager = CLLocationManager()
-    var currentLocation: CLLocation? = nil
     var latitudeValue = ""
     var longituteValue = ""
+    var weatherModelList: [WeatherModel]!
+    private var weatherViewModel : WeatherViewModel!
+    let refreshControl = UIRefreshControl()
+    
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +34,15 @@ class WeatherListViewController: UIViewController {
         setViews()
         setActions()
         
+    }
+    
+    //MARK: - ViewDidAppear
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if latitudeValue == "" && longituteValue == ""{
+            fetchLocationUpdates()
+        }
+        self.weatherTableView.reloadData()
     }
     
     
@@ -43,9 +55,14 @@ class WeatherListViewController: UIViewController {
         noWeatherVIew.isHidden = false
         weatherTableView.isHidden = true
         
+        searchBar.delegate = self
+        searchBar.searchTextField.clearButtonMode = .never
         searchBar.searchBarStyle = .minimal
         loctionImgView.image = loctionImgView.image?.withRenderingMode(.alwaysTemplate)
         loctionImgView.tintColor = Colors.APP_BLUE_COLOR
+        
+        refreshControl.addTarget(self, action:  #selector(refreshData), for: .valueChanged)
+        weatherTableView.refreshControl = refreshControl
         
         self.weatherTableView.delegate = self
         self.weatherTableView.dataSource = self
@@ -53,7 +70,6 @@ class WeatherListViewController: UIViewController {
         
         weatherTableView.register(UINib(nibName: NIBs.Weather, bundle: nil), forCellReuseIdentifier: Indentifiers.WeatherCell)
         
-        locationManager.delegate = self
     }
     
     //MARK: - Set Up Custom Action
@@ -61,16 +77,52 @@ class WeatherListViewController: UIViewController {
         let tapLocationView = UITapGestureRecognizer(target: self, action: #selector(action_getLocation))
         locationView.isUserInteractionEnabled = true
         locationView.addGestureRecognizer(tapLocationView)
-        
     }
     
     //MARK: - IBActions for Custom Targets
     @IBAction func action_getLocation(sender: UITapGestureRecognizer) {
-        startLocationServices()
-        
+        fetchLocationUpdates()
     }
     
+    //MARK: - Action to handle Pull To Refresh
+    @objc func refreshData() {
+        getWeatherDataFromViewModel(true)
+    }
     
+    //MARK: - Get Updates Device Locations
+    func fetchLocationUpdates(){
+        LocationManager.sharedInstance.startLocationServices()
+        LocationManager.sharedInstance.locationUpdateCompletion = { [unowned self] (lat, long) in
+            latitudeValue =  lat
+            longituteValue = long
+            searchBar.text = latitudeValue + ", " + longituteValue
+            getWeatherDataFromViewModel(NetworkManagerUtility.sharedInstance.isConnectedToNetwork())
+        }
+    }
+    
+    //MARK: - Get Weather Data From APIs through ViewModel
+    func getWeatherDataFromViewModel(_ type: Bool){
+        self.showLoader()
+        self.weatherViewModel =  WeatherViewModel(lat: latitudeValue, lon: longituteValue, vc:self, type: type)
+        self.weatherViewModel.bindWeatherViewModelToController = { [unowned self] result in
+            if let result = result{
+                if result.count > 0{
+                    self.weatherModelList = result
+                    self.noWeatherVIew.isHidden = true
+                    self.weatherTableView.isHidden = false
+                    self.weatherTableView.reloadData()
+                    
+                }else{
+                    AppUtility.showAlertControllerWithClick(title: K.APP_NAME, message: K.NO_INTERNET, viewController: self, style: .alert, buttonsTitle: K.OK, completion: { result in
+                        
+                    })
+                }
+                
+            }
+            self.refreshControl.endRefreshing()
+            self.hideLoader()
+        }
+    }
 }
 
 // MARK: - VC Extention for TableView
@@ -84,99 +136,62 @@ extension WeatherListViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        if let list = weatherModelList{
+            return list.count
+        }else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: Indentifiers.WeatherCell, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Indentifiers.WeatherCell, for: indexPath) as! WeatherTableViewCell
+        cell.setWeatherCell(dailyWeather: weatherModelList[indexPath.row])
         cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
-        
+        let weatherDetailVC = Storyboards.MAIN.instantiateViewController(withIdentifier: Controllers.WEATHER_DETAIL) as! WeatherDetailViewController
+        weatherDetailVC.weatherModel = weatherModelList[indexPath.row]
+        self.navigationController?.pushViewController(weatherDetailVC, animated: true)
         weatherTableView.deselectRow(at: indexPath, animated: true)
-        
     }
-    
 }
 
-// MARK: - VC Extention for Location Updates
-extension WeatherListViewController: CLLocationManagerDelegate {
+// MARK: - VC Extention for UISearchBar delegates handling for calling Google Places API
+extension WeatherListViewController: UISearchBarDelegate {
     
-    func startLocationServices() {
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestLocation()
-        
-    }
-    
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        switch manager.authorizationStatus {
-        case .notDetermined:
-            self.locationManager.requestWhenInUseAuthorization() // This is where you request permission to use location services
-        case .authorizedWhenInUse, .authorizedAlways:
-            if CLLocationManager.locationServicesEnabled() {
-                self.locationManager.startUpdatingLocation()
-            }
-        case .restricted, .denied:
-            self.alertLocationAccessNeeded()
-        @unknown default:
-            break
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        if NetworkManagerUtility.sharedInstance.isConnectedToNetwork(){
+            searchBar.resignFirstResponder()
+            let acController = GMSAutocompleteViewController()
+            acController.delegate = self
+            present(acController, animated: true, completion: nil)
+        }else {
+            AppUtility.showAlertControllerWithClick(title: K.APP_NAME, message: K.NO_INTERNET, viewController: self, style: .alert, buttonsTitle: K.OK, completion: { result in
+            })
         }
     }
-    
-    func alertLocationAccessNeeded() {
-        let settingsAppURL = URL(string: UIApplication.openSettingsURLString)!
+}
+
+
+// MARK: - VC Extention for Google Places API Delegates and Updates
+extension WeatherListViewController: GMSAutocompleteViewControllerDelegate {
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         
-        let alert = UIAlertController(
-            title: "Need Location Access",
-            message: "Location access is required for including the location of the hazard.",
-            preferredStyle: UIAlertController.Style.alert
-        )
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Allow Location Access",
-                                      style: .cancel,
-                                      handler: { (alert) -> Void in
-            UIApplication.shared.open(settingsAppURL,
-                                      options: [:],
-                                      completionHandler: nil)
-        }))
-        
-        present(alert, animated: true, completion: nil)
+        latitudeValue =  String(format: "%.3f", place.coordinate.latitude)
+        longituteValue = String(format: "%.3f", place.coordinate.longitude)
+        searchBar.text = place.name
+        dismiss(animated: true, completion: {
+            self.getWeatherDataFromViewModel(true)
+        })
     }
-    // Monitor location services authorization changes
-    func locationManager(_ manager: CLLocationManager,
-                         didChangeAuthorization status: CLAuthorizationStatus) {
-        switch status {
-        case .notDetermined:
-            break
-        case .authorizedWhenInUse, .authorizedAlways:
-            if CLLocationManager.locationServicesEnabled() {
-                self.locationManager.startUpdatingLocation()
-            }
-        case .restricted, .denied:
-            self.alertLocationAccessNeeded()
-        default:
-            break
-        }
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        print("Error: ", error.localizedDescription)
     }
-    
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            latitudeValue =  String(format: "%.3f", location.coordinate.latitude)
-            longituteValue = String(format: "%.3f", location.coordinate.longitude)
-            searchBar.text = latitudeValue + ", " + longituteValue
-            print("Found user's location: \(location)")
-            locationManager.stopUpdatingLocation()
-        }
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
     }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Failed to find user's location: \(error.localizedDescription)")
-    }
-    
 }

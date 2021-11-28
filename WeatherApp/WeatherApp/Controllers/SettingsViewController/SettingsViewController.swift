@@ -14,6 +14,10 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var daysTextField: UITextField!
     @IBOutlet weak var switchView: UIView!
     
+    
+    //MARK: - Variables
+    var iconsSegmentedControl: BetterSegmentedControl!
+    
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,10 +45,17 @@ class SettingsViewController: UIViewController {
         
     }
     
+    //MARK: - ViewDidAppear
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        iconsSegmentedControl.setIndex(UserDefaultsHandler.sharedInstance.getTempType() == K.CELSIUS ? 0 : 1)
+        self.daysTextField.text = UserDefaultsHandler.sharedInstance.getNumOfDays()
+    }
+    
     //MARK: - Switch Theme Setup
     func setUpSwitchView(){
-        let iconsSegmentedControl = BetterSegmentedControl(
-            frame: CGRect(x: 0, y: 0, width: switchView.frame.width - 20, height: switchView.frame.height),
+        iconsSegmentedControl = BetterSegmentedControl(
+            frame: CGRect(x: 0, y: 0, width: switchView.frame.width, height: switchView.frame.height),
             segments: IconSegment.segments(withIcons: [UIImage(named: K.CELSIUS)!, UIImage(named: K.FARENHEIT)!],
                                            iconSize: CGSize(width: 20.0, height: 20.0),
                                            normalIconTintColor: .white,
@@ -53,13 +64,14 @@ class SettingsViewController: UIViewController {
                       .backgroundColor( Colors.APP_BLUE_COLOR),
                       .indicatorViewBackgroundColor( Colors.WHITE_GRAY_COLOR)])
         iconsSegmentedControl.addTarget(self,
-                                        action: #selector(segmentedControl1ValueChanged(_:)),
+                                        action: #selector(segmentedControlValueChanged(_:)),
                                         for: .valueChanged)
         switchView.addSubview(iconsSegmentedControl)
+
     }
     
     //MARK: - IBActions for Custom Targets
-    @IBAction func segmentedControl1ValueChanged(_ sender: BetterSegmentedControl) {
+    @IBAction func segmentedControlValueChanged(_ sender: BetterSegmentedControl) {
         UserDefaultsHandler.sharedInstance.setTempType(tempType: sender.index == 0 ? K.CELSIUS : K.FARENHEIT)
     }
     

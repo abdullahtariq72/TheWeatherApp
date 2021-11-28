@@ -10,45 +10,37 @@ import UIKit
 
 struct K {
     
-    
-    
+
+    static let DEV_BASE_SERVER_URL = "https://api.openweathermap.org/data/2.5/onecall"
+    static let STAGING_BASE_SERVER_URL = "https://api.openweathermap.org/data/2.5/onecall"
+    static let PROD_BASE_SERVER_URL = "https://api.openweathermap.org/data/2.5/onecall"
+    static let WEATHER_API_KEY = "e04248fc53ec81325dcbe63a825c6cec"
+    static let GOOGLE_API_KEY = "AIzaSyAVdH2ipzBx0okS-_2dMIxJiF-ep5Eu5cU"
+    static let WEATHER_ICON_BASEURL = "http://openweathermap.org/img/wn/"
+
     static let CELSIUS = "celsius"
     static let FARENHEIT = "farenheit"
-    static let LOADING_KEY = "loading..."
+    
+    static let UNITS = "units"
+    static let WEATHER_UNIT = "imperial"
+    
     static let ALERT = "Alert"
     static let OK = "OK"
+    static let WEATHER_EXCLUDE = "hourly,minutely,alerts"
+    static let LAT = "lat"
+    static let LON = "lon"
+    static let EXCLUDE = "exclude"
+    static let APPID = "appid"
+    static let APP_NAME = "Weather App"
+    static let WEATHER_UPDATE = "Checkout the New Weather Updates."
     
     static let NUM_DAYS_TEXTFIELD_VALIDATION = "Enter number of days upto two digits"
 
     static let ERROR = "Error"
-    static let ARE_YOU_SURE = "Are you sure?"
-    static let SUCCESS = "Success"
-    static let API_BASE_URL_TYPE = "APIBaseURLType"
-    static let DEVICE_TOKEN = "deviceToken"
-    static let KFCM_TOKEN = "fcmToken"
-    static let CANCEL_TEXT = "Cancel"
-    static let SETTINGS_TEXT = "Settings"
-    static let NOTIFICATION_COUNT_KEY = "NOTIFICATION_COUNT"
-    static let NAME_KEY = "name"
-    static let IMAGE_URL = "imageUrl"
-    static let TEXT = "text"
-    static let TYPE_KEY = "type"
-    static let TYPE_ID_KEY = "typeId"
-    static let DATA = "data"
-    static let IS_READ = "isRead"
-    static let SENDER_ID = "senderId"
-    static let LATITUDE = "latitude"
-    static let LONGITUDE = "longitude"
-    static let EGIFT_CARD_MODEL = "eGiftCardModel"
-    static let NOTIFICATION_USERINFO = "notificationUserInfo"
-    static let TRUE = "true"
-    static let FALSE = "false"
-    static let SELECTED_MY_CARDS_TAB = "selectedMyCardsTab"
-    static let IS_CONNECTED = "isConnected"
-    static let IS_DARK_THEME_KEY = "isDarkTheme"
-    static let PROFILE_PICTURE = "profilePicture"
-    static let THUMBNAIL_KEY = "thumbnail"
-    static let FILE_KEY = "file"
+    static let SERVER_NOT_RESPONDING = "Server Not Reponding"
+    static let NO_INTERNET = "Internet Not Available"
+    static let ENCODING_ERROR = "Encoding Error"
+    
 }
 
 struct UserDefaultKeys {
@@ -79,6 +71,10 @@ struct Indentifiers {
 struct Controllers {
     static let SPLASH = "SplashViewController"
     static let DASHBOARD = "DashboardViewController"
+    static let WEATHER_DETAIL = "WeatherDetailViewController"
+    static let WEATHER_LIST = "WeatherListViewController"
+    static let TABBR_VC = "SSCustomTabBarViewController"
+    
 }
 
 struct DateFormats {
@@ -88,6 +84,7 @@ struct DateFormats {
     static let MMyy = "MM/yy"
     static let yyyy_MM_dd = "yyyy-MM-dd"
     static let EMMMdyyyy = "E, MMM d, yyyy"
+    static let EEEEMMMdyyyy = "EEEE, MMM d, yyyy"
     static let MMMdyyyy = "MMM d, yyyy"
     static let MMMd = "MMM d"
     static let dMMMMyyy = "d MMMM yyyy"
@@ -98,6 +95,7 @@ struct DateFormats {
     static let MY_CARDS_DATE_FORMAT = "MMM dd, yyyy - hh:mm a"
     static let EN_US_POSIX = Locale(identifier: "en_US_POSIX")
     static let UTC_TIME_ZONE = TimeZone(abbreviation: "UTC")
+    
 }
 
 

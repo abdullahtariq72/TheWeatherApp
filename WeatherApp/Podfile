@@ -12,4 +12,7 @@ pod 'SHSnackBarView'
 pod 'lottie-ios'
 pod "SSCustomTabbar"
 pod 'BetterSegmentedControl', '~> 2.0'
+pod 'GooglePlaces'
+pod 'RealmSwift'
+pod 'ReachabilitySwift'
 end

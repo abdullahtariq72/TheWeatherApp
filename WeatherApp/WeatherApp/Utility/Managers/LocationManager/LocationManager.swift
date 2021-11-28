@@ -96,13 +96,13 @@ class LocationManager: NSObject, CLLocationManagerDelegate{
     //MARK: - Delegate to Provide Updated Locations
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-            if !LocationManager.isAppTerminating{
+            if !LocationManager.isAppTerminating && !LocationManager.isAppBackground{
                 locationManager.stopUpdatingLocation()
                 locationUpdateCompletion?(String(format: "%.3f", location.coordinate.latitude),String(format: "%.3f", location.coordinate.longitude))
-            }else if LocationManager.isAppBackground{
-                _ = Timer(timeInterval: 900, repeats: true) { _ in
+            }else if LocationManager.isAppBackground && !LocationManager.isAppTerminating{
+                _ = Timer(timeInterval: 200, repeats: true) { _ in
                     let calendar = Calendar.current
-                    let date = calendar.date(byAdding: .minute, value:1 , to: Date())
+                    let date = calendar.date(byAdding: .minute, value: 1 , to: Date())
                     NotificationManager.shared.sendNotification(date: date!, title: K.APP_NAME, body: K.WEATHER_UPDATE)
                 }
             }else{
@@ -110,7 +110,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate{
                 let date = calendar.date(byAdding: .minute, value:10 , to: Date())
                 NotificationManager.shared.sendNotification(date: date!, title: K.APP_NAME, body: K.WEATHER_UPDATE)
             }
-            
             print("Found user's location: \(location)")
             
         }

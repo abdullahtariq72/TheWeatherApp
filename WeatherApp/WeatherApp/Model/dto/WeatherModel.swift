@@ -16,11 +16,9 @@ class WeatherModel: Codable {
     var weatherText: String?
     var currentTempDetails: Current?
     var dailyTempDetails: Daily?
-    var isDownloaded: Bool = false
     
     enum CodingKeys: String, CodingKey {
         case day, date, weatherText
-        case isDownloaded
         case currentTempDetails, dailyTempDetails
     }
 }

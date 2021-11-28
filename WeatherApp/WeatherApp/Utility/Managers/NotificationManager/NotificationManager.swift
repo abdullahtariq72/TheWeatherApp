@@ -21,6 +21,9 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     }
     
     
+    func requestPermission(){
+        self.requestNotificationAuthorization(userNotificationCenter:self.userNotificationCenter)
+    }
     
     func requestNotificationAuthorization(userNotificationCenter:UNUserNotificationCenter) {
         let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert, .badge, .sound)
@@ -38,9 +41,6 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         checkNotificationPermission()
         
         UIApplication.shared.applicationIconBadgeNumber = 0
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        
-        
         let notificationContent = UNMutableNotificationContent()
         notificationContent.title = title
         notificationContent.body = body

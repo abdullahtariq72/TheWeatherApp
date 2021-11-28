@@ -28,14 +28,11 @@ class WeatherTableViewCell: UITableViewCell {
         /**
          Image URL calling in Concurrent DispatchQueue Queue
          */
-        if !dailyWeather.isDownloaded{
-            let concurrentQueue = DispatchQueue(label: "myConcurrentQueueIconImg", qos: .default, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
-            concurrentQueue.async { 
-                APINetworkManager.sharedInstance.setImageFromUrl(ImageURL: K.WEATHER_ICON_BASEURL + String((dailyWeather.dailyTempDetails?.weather![0].icon)!) + "@2x.png", completion: { image in
-                    self.tempImgView.image = image!
-                    dailyWeather.isDownloaded = true
-                })
-            }
+        let concurrentQueue = DispatchQueue(label: "myConcurrentQueueIconImg", qos: .default, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
+        concurrentQueue.async {
+            APINetworkManager.sharedInstance.setImageFromUrl(ImageURL: K.WEATHER_ICON_BASEURL + String((dailyWeather.dailyTempDetails?.weather![0].icon)!) + "@2x.png", completion: { image in
+                self.tempImgView.image = image!
+            })
         }
         
         /**

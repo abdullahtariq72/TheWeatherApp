@@ -39,6 +39,10 @@ class WeatherListViewController: UIViewController {
     //MARK: - ViewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        /**
+         Request for Notification Permissions*/
+        NotificationManager.shared.requestPermission()
+        
         if latitudeValue == "" && longituteValue == ""{
             fetchLocationUpdates()
         }

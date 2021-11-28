@@ -1,0 +1,50 @@
+PODS:
+  - Alamofire (5.4.4)
+  - BetterSegmentedControl (2.0.1)
+  - GooglePlaces (5.1.0)
+  - IQKeyboardManagerSwift (6.5.9)
+  - lottie-ios (3.2.3)
+  - ReachabilitySwift (5.0.0)
+  - Realm (10.20.0):
+    - Realm/Headers (= 10.20.0)
+  - Realm/Headers (10.20.0)
+  - RealmSwift (10.20.0):
+    - Realm (= 10.20.0)
+  - SHSnackBarView (1.0.1)
+
+DEPENDENCIES:
+  - Alamofire
+  - BetterSegmentedControl (~> 2.0)
+  - GooglePlaces
+  - IQKeyboardManagerSwift
+  - lottie-ios
+  - ReachabilitySwift
+  - RealmSwift
+  - SHSnackBarView
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - BetterSegmentedControl
+    - GooglePlaces
+    - IQKeyboardManagerSwift
+    - lottie-ios
+    - ReachabilitySwift
+    - Realm
+    - RealmSwift
+    - SHSnackBarView
+
+SPEC CHECKSUMS:
+  Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  BetterSegmentedControl: 09607b27861d49cbce48b7673b74f9150a3d371a
+  GooglePlaces: c57cd5aa7e91d10fa5106c792de74f3bd6436260
+  IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
+  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  Realm: ae32bdc1da7d19c7617e0400201a77acd4a211b9
+  RealmSwift: c95eec6a712924870b2e36c4c081d63ec07e5414
+  SHSnackBarView: b054b88142fffd4a9d2ef46f35c314f915925306
+
+PODFILE CHECKSUM: 5e2f00361c6d044d58c6a9f4ecd5f862d45ed4cf
+
+COCOAPODS: 1.11.2

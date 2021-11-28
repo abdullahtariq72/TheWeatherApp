@@ -28,7 +28,9 @@ extension UIViewController{
         let btn : UIButton = UIButton(frame: CGRect(x:0, y:0, width:40, height:40))
         btn.setTitleColor(UIColor.white, for: .normal)
         btn.contentMode = .left
-        btn.setImage(image, for: .normal)
+        let customImage = image.withRenderingMode(.alwaysTemplate)
+        btn.setImage(customImage, for: .normal)
+        btn.imageView!.tintColor = Colors.APP_BLUE_COLOR
         btn.addTarget(self, action: buttonAction, for: .touchDown)
         let barButton: UIBarButtonItem = UIBarButtonItem(customView: btn)
         direction == "left" ? self.navigationItem.setLeftBarButtonItems([barButton], animated: false) : self.navigationItem.setRightBarButtonItems([barButton], animated: false)

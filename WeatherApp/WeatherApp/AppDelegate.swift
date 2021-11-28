@@ -7,15 +7,18 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import GooglePlaces
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
+    var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enable = true
         setNavBarColor()
+        GMSPlacesClient.provideAPIKey(K.GOOGLE_API_KEY)
         return true
     }
     
@@ -31,19 +34,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
         }
     }
-
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
     }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        LocationManager.isAppTerminating = true
+        LocationManager.sharedInstance.startLocationServices()
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        LocationManager.isAppBackground = true
+        LocationManager.sharedInstance.startLocationServices()
     }
 
 

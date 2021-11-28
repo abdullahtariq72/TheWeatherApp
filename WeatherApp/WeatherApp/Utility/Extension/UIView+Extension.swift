@@ -11,6 +11,14 @@ import UIKit
 extension UIView{
     
     
+    func shadowView(){
+        self.layer.cornerRadius = 10.0
+        self.layer.shadowRadius = 4
+        self.layer.shadowOpacity = 0.1
+        self.layer.shadowColor = Colors.APP_BLUE_COLOR.cgColor
+        self.layer.shadowOffset = CGSize(width: 2, height: 3)
+    }
+    
     func setGradientBackground(colorTop: UIColor, colorCenter: UIColor, colorBottom: UIColor) {
         let gradientLayer = CAGradientLayer()
         

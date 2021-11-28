@@ -6,10 +6,11 @@ target 'WeatherApp' do
   use_frameworks!
 
 pod 'IQKeyboardManagerSwift'
-pod 'SwiftGifOrigin', '~> 1.7.0'
 pod 'Alamofire'
 pod 'SHSnackBarView'
 pod 'lottie-ios'
-pod "SSCustomTabbar"
 pod 'BetterSegmentedControl', '~> 2.0'
+pod 'GooglePlaces'
+pod 'RealmSwift'
+pod 'ReachabilitySwift'
 end

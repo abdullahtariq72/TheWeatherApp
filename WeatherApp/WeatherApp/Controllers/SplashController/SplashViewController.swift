@@ -6,9 +6,7 @@
 //
 
 import UIKit
-import SwiftGifOrigin
 import Lottie
-import SSCustomTabbar
 
 class SplashViewController: UIViewController {
 
@@ -23,17 +21,12 @@ class SplashViewController: UIViewController {
         
         /**
          Navigate to Dashboard View Controller*/
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            
-            let tabBarVC = Storyboards.MAIN.instantiateViewController(withIdentifier: "SSCustomTabBarViewController") as! SSCustomTabBarViewController
-            
-            
-            self.navigationController?.pushViewController(tabBarVC, animated: true)
-
-//            self.navigationController?.pushViewController(Storyboards.MAIN.instantiateViewController(withIdentifier: Controllers.DASHBOARD), animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
+            let tabBarVC = Storyboards.MAIN.instantiateViewController(withIdentifier: Controllers.TABBR_VC) as! SSCustomTabBarViewController
+            tabBarVC.view.layoutIfNeeded()
+            AppUtility.keyWindow!.rootViewController = tabBarVC
+            AppUtility.keyWindow!.makeKeyAndVisible()
         }
-        
-        
     }
     
     // MARK: - SetupControllerViews

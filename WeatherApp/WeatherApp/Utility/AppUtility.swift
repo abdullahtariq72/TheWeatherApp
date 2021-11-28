@@ -205,6 +205,31 @@ class AppUtility {
         
         return newImage!
     }
+    public static func getDates(format: String, count: Int) -> Array<String>{
+        var dates = Array<String>()
+        var customDate = Date()
+        let dateformat = DateFormatter()
+        
+        var modifiedDate = Calendar.current.date(byAdding: .day, value: -1, to: customDate)!
+        customDate = modifiedDate
+        dateformat.dateFormat = format
+        dates.append(dateformat.string(from: customDate))
+        
+        for _ in 1...count-1 {
+            modifiedDate = Calendar.current.date(byAdding: .day, value: 1, to: customDate)!
+            customDate = modifiedDate
+            dateformat.dateFormat = format
+            dates.append(dateformat.string(from: customDate))
+        }
+        return dates
+    }
+    
+    public static func millisToDate(millis: Double, format: String) -> String{
+        let customDate = Date(timeIntervalSince1970: (millis))
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = format
+        return dateformat.string(from: customDate)
+    }
     
   
     public static func stringtoDate(format: String, dateStr: String) -> Date{
